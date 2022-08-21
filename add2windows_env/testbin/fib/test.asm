@@ -1,0 +1,24 @@
+
+test.elf:     file format elf32-tradlittlemips
+
+
+Disassembly of section .text:
+
+80000000 <_ftext>:
+80000000:	24080001 	li	t0,1
+80000004:	24090001 	li	t1,1
+80000008:	3c048040 	lui	a0,0x8040
+8000000c:	248d0100 	addiu	t5,a0,256
+
+80000010 <loop>:
+80000010:	01095021 	addu	t2,t0,t1
+80000014:	01204025 	move	t0,t1
+80000018:	01404825 	move	t1,t2
+8000001c:	ac890000 	sw	t1,0(a0)
+80000020:	24840004 	addiu	a0,a0,4
+80000024:	148dfffa 	bne	a0,t5,80000010 <loop>
+80000028:	00000000 	nop
+
+8000002c <end>:
+8000002c:	15a0ffff 	bnez	t5,8000002c <end>
+80000030:	00000000 	nop
